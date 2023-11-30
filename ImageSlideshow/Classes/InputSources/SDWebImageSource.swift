@@ -20,6 +20,10 @@ public class SDWebImageSource: NSObject, InputSource {
 
     /// placeholder used before image is loaded
     public var placeholder: UIImage?
+    
+    public var options = [SDWebImageOptions]()
+    
+    
 
     /// Initializes a new source with a URL
     /// - parameter url: a url to be loaded
@@ -44,7 +48,7 @@ public class SDWebImageSource: NSObject, InputSource {
     }
 
     public func load(to imageView: UIImageView, with callback: @escaping (UIImage?) -> Void) {
-        imageView.sd_setImage(with: self.url, placeholderImage: self.placeholder, options: [], completed: { (image, _, _, _) in
+        imageView.sd_setImage(with: self.url, placeholderImage: self.placeholder, options: self.options, completed: { (image, _, _, _) in
             callback(image)
         })
     }
@@ -53,3 +57,4 @@ public class SDWebImageSource: NSObject, InputSource {
         imageView.sd_cancelCurrentImageLoad()
     }
 }
+
