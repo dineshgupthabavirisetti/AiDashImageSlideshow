@@ -21,7 +21,7 @@ public class SDWebImageSource: NSObject, InputSource {
     /// placeholder used before image is loaded
     public var placeholder: UIImage?
     
-    public var options = [SDWebImageOptions]()
+    public var options = SDWebImageOptions.retryFailed
     
     
 
